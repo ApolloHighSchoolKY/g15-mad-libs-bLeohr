@@ -37,8 +37,13 @@ public class MadLib
 		{
 			//Read the different parts of the story and concatenate the resulting
 			//story using the symbols to tell you the parts of speech
+			String storyString = "";
+			Scanner storyReader = new Scanner(new File("story.dat"));
 
-			Scanner storyChop = new Scanner(new File("story.dat"));
+			while(storyReader.hasNext())
+				storyString+=(storyReader.next());
+
+			Scanner storyChop = new Scanner(storyString);
 
 			while(storyChop.hasNext())
 				if(storyChop.next().equals("&"))
@@ -108,7 +113,7 @@ public class MadLib
 		{
 			Scanner reader = new Scanner(new File("adjectives.dat"));
 			while(reader.hasNext())
-			verbs.add(reader.next());
+			adjectives.add(reader.next());
 
 			reader.close();
 		}
